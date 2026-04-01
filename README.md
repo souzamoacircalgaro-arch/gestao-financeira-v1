@@ -1,19 +1,23 @@
-# 💰 Sistema de Gestão Financeira V1
+# 💰 Sistema de Gestão Financeira V1 - Souza Moacir
 
-Aplicação Web de controle financeiro pessoal integrada ao **Google Sheets** via **Google Apps Script**. O sistema permite o lançamento rápido de despesas e receitas diretamente pelo navegador (Mobile First), com atualização automática de saldo.
+Aplicação Web de alta performance desenvolvida para controle financeiro pessoal, integrada ao **Google Sheets** via **Google Apps Script**. O sistema oferece uma interface *Mobile-First* moderna para lançamentos rápidos e acompanhamento de saldo em tempo real.
 
-## 🚀 Funcionalidades
-- **Lançamento Rápido:** Interface otimizada para smartphones.
-- **Categorização Inteligente:** Separação entre Contas de Consumo, Faturas e Títulos.
-- **Dashboard em Tempo Real:** Visualização de Ganhos e Sobra no topo do app.
-- **Banco de Dados em Nuvem:** Todos os dados são salvos em uma planilha do Google Sheets.
-- **Backup Automático:** Função integrada para envio de relatórios semanais por e-mail.
+## 🚀 Diferenciais do Projeto
+- **Interface Moderna (UI/UX):** Design limpo com dashboard de Ganhos e Sobra Total no topo.
+- **Categorização Financeira:** Separação inteligente entre Contas de Consumo, Faturas e Títulos de Crédito.
+- **Meios de Pagamento:** Suporte para PIX, Débito, Crédito, Dinheiro e Depósito.
+- **Segurança de Dados:** Processamento via Google V8 Engine com travas de escrita (LockService) para evitar corrupção de dados.
+- **Backup Automático:** Função integrada para envio de relatórios semanais em PDF por e-mail.
 
 ## 🛠️ Tecnologias Utilizadas
-- **Frontend:** HTML5, CSS3 (Bootstrap 5), JavaScript.
-- **Backend:** Google Apps Script (JavaScript/V8 Engine).
-- **Database:** Google Sheets API.
+- **Frontend:** HTML5, CSS3 (Bootstrap Custom), JavaScript.
+- **Backend:** Google Apps Script (Server-side JavaScript).
+- **Banco de Dados:** Google Sheets API.
 
-## 📈 Estrutura da Planilha
-O sistema utiliza uma aba chamada `Lancamentos` com as colunas:
+## 📊 Estrutura do Banco de Dados
+Os dados são organizados cronologicamente na aba `Lancamentos` com as colunas:
 `ID | Data_Hora | Categoria | Descricao | Valor | Meio_Pagamento | Mes_Ref | Tipo`
+
+## 🔗 Demonstração
+Acesse o aplicativo funcional através do link abaixo:
+[Abrir Aplicativo Financeiro](https://google.com)
