@@ -1,10 +1,3 @@
-function doGet() {
-  return HtmlService.createHtmlOutputFromFile('Index')
-    .setTitle('Fintech Souza Moacir')
-    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
-    .addMetaTag('viewport', 'width=device-width, initial-scale=1');
-}
-
 function salvarDados(dados) {
   const LOCK = LockService.getScriptLock();
   try {
@@ -14,6 +7,9 @@ function salvarDados(dados) {
     const dataAtual = new Date();
     const id = Utilities.formatDate(dataAtual, "GMT-3", "yyyyMMddHHmmss");
     
+    // Define o tipo: Somente 'RECEBIMENTO' é Receita. Faturas e outros são Gastos.
+    const tipoFinal = (dados.categoria === "RECEBIMENTO") ? "Receita" : "Gasto";
+
     sheet.appendRow([
       id,
       dataAtual,
@@ -22,10 +18,10 @@ function salvarDados(dados) {
       parseFloat(dados.valor),
       dados.meioPagamento,
       dados.mesRef,
-      dados.categoria === "RECEBIMENTO" ? "Receita" : "Gasto"
+      tipoFinal
     ]);
 
-    return { status: "sucesso", msg: "Lançamento #" + id + " registrado!" };
+    return { status: "sucesso", msg: "Lançamento #" + id + " registrado como " + tipoFinal + "!" };
   } catch (e) {
     return { status: "erro", msg: "Erro: " + e.message };
   } finally {
