@@ -1,8 +1,3 @@
-/**
- * SISTEMA FINANCEIRO - BACKEND
- * Desenvolvedor: Souza Moacir
- */
-
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('Index')
     .setTitle('Fintech Souza Moacir')
@@ -31,9 +26,9 @@ function salvarDados(dados) {
       dados.categoria === "RECEBIMENTO" ? "Receita" : "Gasto"
     ]);
 
-    return { status: "sucesso", msg: "Lançamento #" + id + " salvo!" };
+    return { status: "sucesso", msg: "Lançamento #" + id + " salvo com sucesso!" };
   } catch (e) {
-    return { status: "erro", msg: "Erro: " + e.message };
+    return { status: "erro", msg: "Erro técnico: " + e.message };
   } finally {
     LOCK.releaseLock();
   }
@@ -48,8 +43,8 @@ function carregarDashboard() {
   let receita = 0, gasto = 0;
 
   for (let i = 1; i < valores.length; i++) {
-    let v = parseFloat(valores[i][4]) || 0; 
-    let t = valores[i][7];                 
+    let v = parseFloat(valores[i][4]) || 0; // Coluna E (Valor)
+    let t = valores[i][7];                 // Coluna H (Tipo)
     t === "Receita" ? receita += v : gasto += v;
   }
 
